@@ -1,0 +1,27 @@
+✅Construction of a Fraction from two, one, or zero integer arguments. If two arguments, they are assumed to be the numerator and denominator, just one is assumed to be a whole number, and zero arguments creates a zero Fraction. Use default parameters so that you only need a single function to implement all three of these constructors.
+
+✅You should check to make sure that the denominator is not set to 0. The easiest way to do this is to use an assert statement: assert(inDenominator != 0); You can put this statement at the top of your constructor. Note that the variable in the assert() is the incoming parameter, not the data member. In order to use assert(), you must #include <cassert>
+
+✅Printing a Fraction to a stream with an overloaded insertion (<<) operator. The Fraction should be printed in reduced form (not 3/6 but 1/2). Whole numbers should print without a denominator (e.g. not 3/1 but just 3). Improper Fractions should be printed as a mixed number with a + sign between the two parts (2+1/2). Negative Fractions should be printed with a leading minus sign.
+
+    Reading a Fraction from a stream using an overloaded extraction (>>) operator. You should be able to read any of the formats described above (mixed number, negative, whole numbers). You may assume that there are no spaces or formatting errors in the Fractions that you read. This means, for example, that in a mixed number only the whole number (not the numerator or denominator) may be negative, and that in a fraction with no whole number part only the numerator (not the denominator) may be negative. Note: You may need to exceed 15 lines for this function. My solution is about 20 lines long.
+
+    All six of the relational operators (<, <=, >, >=, ==, !=) should be supported. They should be able to compare Fractions to other Fractions as well as Fractions to integers. Either Fractions or integers can appear on either side of the binary comparison operator. You should only use one function for each operator.
+
+    The four basic arithmetic operations (+, -, *, /) should be supported. Again, they should allow Fractions to be combined with other Fractions, as well as with integers. Either Fractions or integers can appear on either side of the binary operator. Only use one function for each operator.
+
+    Note that no special handling is needed to handle the case of dividing by a Fraction that is equal to 0. If the client attempts to do this, they will get a runtime error, which is the same behavior they would expect if they tried to divide by an int or double that was equal to 0.
+
+    The shorthand arithmetic assignment operators (+=, -=, *=, /=) should also be implemented. Fractions can appear on the left-hand side, and Fractions or integers on the right-hand side. Only use one function for each operator.
+
+    The increment and decrement (++, --) operators should be supported in both prefix and postfix form for Fractions. To increment or decrement a Fraction means to add or subtract (respectively) one (1).
+
+    Add a private "simplify()" function to your class and call it from the appropriate member functions. The best way to do this is to make the function a void function with no parameters that reduces the calling object.
+
+    Recall that "simplifying" or "reducing" a Fraction is a separate task from converting it from an improper Fraction to a mixed number. Make sure you keep those two tasks separate in your mind.
+
+    Make sure that your class will reduce ANY Fraction, not just the Fractions that are tested in the provided client program. Fractions should not be simply reduced upon output, they should be stored in reduced form at all times. In other words, you should ensure that all Fraction objects are reduced before the end of any member function. To put it yet another way: each member function (other than simplify() itself) must be able to assume that all Fraction objects are in simple form when it begins execution.
+
+    You must create your own algorithm for reducing Fractions. Don't look up an already existing algorithm for reducing Fractions or finding GCF. The point here is to have you practice solving the problem on your own. In particular, don't use Euclid's algorithm. Don't worry about being efficient. It's fine to have your function check every possible factor, even if it would be more efficient to just check prime numbers. Just create something of your own that works correctly on ANY Fraction.
+
+    Your simplify() function should also ensure that the denominator is never negative. If the denominator is negative, fix this by multiplying numerator and denominator by -1. Also, if the numerator is 0, the denominator should be set to 1.
