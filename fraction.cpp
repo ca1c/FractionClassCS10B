@@ -77,22 +77,17 @@ namespace cs_fraction {
         ss << inString;
         char tempChar;
         int tempInt;
-        ss >> tempInt;
-        ss >> tempChar;
-        if(tempChar == '+' || tempChar == '/') {
-            if(tempChar == '+') {
-                ss >> right.numerator;
-                ss >> tempChar;
-                ss >> right.denominator;
-                right.numerator += abs(tempInt * right.denominator);
-                if(tempInt < 0) {
-                    right.numerator *= -1;
-                }
+        ss >> tempInt >> tempChar;
+        if(tempChar == '+') {
+            ss >> right.numerator >> tempChar >> right.denominator;
+            right.numerator += abs(tempInt * right.denominator);
+            if(tempInt < 0) {
+                right.numerator *= -1;
             }
-            else if(tempChar == '/') {
-                right.numerator = tempInt;
-                ss >> right.denominator;
-            }
+        }
+        else if(tempChar == '/') {
+            right.numerator = tempInt;
+            ss >> right.denominator;
         }
         else {
             right.numerator = tempInt;
